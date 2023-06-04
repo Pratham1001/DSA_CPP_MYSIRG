@@ -8,14 +8,34 @@ class Array{
         int lastIndex;
         int *ptr;
     public:
-        Array(int cap);
+        Array(int);
+        bool isEmpty();
+        void append(int);
 
 };
+
+void Array::append(int data){
+    if(lastIndex== capacity-1 ){
+        cout<<endl<< "Error: array is full";
+
+    }
+    else{
+        lastIndex++;
+        ptr[lastIndex]=data;
+    }
+}
+
+bool Array::isEmpty()
+{
+   return lastIndex==-1;
+}
 
 //access constructor outside the class
 Array::Array(int cap)
 {
-    
+    capacity=cap;
+    lastIndex=-1;
+    ptr=new int [capacity];
 
 
 }
